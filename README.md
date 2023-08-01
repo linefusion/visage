@@ -15,24 +15,24 @@ Visage allows you to write presentational components with just SCSS.
 @include "@wolfulus/props" as props;
 
 @include component(Button) {
-	@include element(button, (
-		target: "_blank"
-	))
-	@include variants {
-	  @include new(inverted);
-	}
+  @include element(button, (
+    target: "_blank"
+  ))
+  @include variants {
+    @include new(inverted);
+  }
   @include stylesheet {
     @apply px-4 py-2 rounded bg-slate-800 text-white;
     &:hover {
       @apply bg-slate-600;
     }
 
-		@include variant(inverted) {
-			@apply bg-slate-100 text-black;
-	    &:hover {
-	      @apply bg-slate-300;
-	    }
-		}
+    @include variant(inverted) {
+      @apply bg-slate-100 text-black;
+      &:hover {
+        @apply bg-slate-300;
+      }
+    }
   }
 }
 ```
@@ -58,19 +58,19 @@ export function Page() {
 
 ```css
 .ButtonComponent {
-	@apply px-4 py-2 rounded bg-slate-800 text-white;
+  @apply px-4 py-2 rounded bg-slate-800 text-white;
 }
 
 .ButtonComponent:hover {
-	@apply bg-slate-600;
+  @apply bg-slate-600;
 }
 
 .ButtonComponent[data-invertred="true"] {
-	@apply bg-slate-100 text-black;
+  @apply bg-slate-100 text-black;
 }
 
 .ButtonComponent[data-inverted="true"]:hover {
-	@apply bg-slate-300;
+  @apply bg-slate-300;
 }
 ```
 
@@ -84,7 +84,7 @@ You can define components by including the `component` mixin. If no element is d
 
 ```scss
 @include component(MyButton) {
-	//
+  //
 }
 ```
 
@@ -92,7 +92,7 @@ You can define components by including the `component` mixin. If no element is d
 
 ```tsx
 <MyButton>
-	Hello
+  Hello
 </MyButton>
 ```
 
@@ -100,7 +100,7 @@ You can define components by including the `component` mixin. If no element is d
 
 ```html 
 <div>
-	Hello
+  Hello
 </div>
 ```
 
@@ -118,7 +118,7 @@ You can specify which element the component will instantiate when rendering the 
 
 ```scss
 @include component(MyButton) {
-	@include element(button);
+  @include element(button);
 }
 ```
 
@@ -126,10 +126,10 @@ You can specify which element the component will instantiate when rendering the 
 
 ```tsx
 <MyButton>
-	Hello
+  Hello
 </MyButton>
 <MyButton component={"a"} href="#" role="button">
-	Hello
+  Hello
 </MyButton>
 ```
 
@@ -137,10 +137,10 @@ You can specify which element the component will instantiate when rendering the 
 
 ```html 
 <button>
-	Hello
+  Hello
 </button>
 <a href="#" role="button">
-	Hello
+  Hello
 </a>
 ```
 
@@ -154,8 +154,8 @@ You can specify default attribute values of the component element. You can still
 
 ```scss
 @include component(MyButton) {
-	@include element(button);
-	@include attribute(type, "button");
+  @include element(button);
+  @include attribute(type, "button");
 }
 ```
 
@@ -163,9 +163,9 @@ or
 
 ```scss
 @include component(MyButton) {
-	@include element(button, (
-		type: "button",
-	));
+  @include element(button, (
+    type: "button",
+  ));
 }
 ```
 
@@ -173,10 +173,10 @@ or
 
 ```tsx
 <MyButton>
-	Hello
+  Hello
 </MyButton>
 <MyButton type="submit">
-	Hello
+  Hello
 </MyButton>
 ```
 
@@ -201,11 +201,11 @@ The stylesheet block generates a class that is applied to the component's root e
 
 ```scss
 @include component(MyButton) {
-	@include element(button);
-	@include attribute(type, "button");
-	@include stylesheet {
-	  @apply mx-4 my-2 bg-green-400 text-white;
-	}
+  @include element(button);
+  @include attribute(type, "button");
+  @include stylesheet {
+    @apply mx-4 my-2 bg-green-400 text-white;
+  }
 }
 ```
 
@@ -213,10 +213,10 @@ The stylesheet block generates a class that is applied to the component's root e
 
 ```tsx
 <MyButton>
-	Hello
+  Hello
 </MyButton>
 <MyButton type="submit">
-	Hello
+  Hello
 </MyButton>
 ```
 
@@ -229,9 +229,9 @@ The stylesheet block generates a class that is applied to the component's root e
 
 ```scss
 @include component(Button) {
-	@include stylesheet {
-		@apply mx-4 my-2; 
-	}
+  @include stylesheet {
+    @apply mx-4 my-2; 
+  }
 }
 ```
 
@@ -239,14 +239,14 @@ The stylesheet block generates a class that is applied to the component's root e
 
 ```scss
 @include component(Button) {
-	@include variants {
-		@include new(success);
-	}
-	@include stylesheet {
-		@include variant(success) {
-			@apply bg-green;
-		}
-	}
+  @include variants {
+    @include new(success);
+  }
+  @include stylesheet {
+    @include variant(success) {
+      @apply bg-green;
+    }
+  }
 }
 ```
 
@@ -258,12 +258,12 @@ The stylesheet block generates a class that is applied to the component's root e
 
 ```scss
 @include component(Button) {
-	@include properties {
-		@include new(my-color, props.color());
-	}
-	@include stylesheet {
-		border-color: from-property(my-color);
-	}
+  @include properties {
+    @include new(my-color, props.color());
+  }
+  @include stylesheet {
+    border-color: from-property(my-color);
+  }
 }
 ```
 
